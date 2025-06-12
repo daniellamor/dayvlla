@@ -1,0 +1,178 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #000;
+  overflow-x: hidden;
+  color: #fff;
+}
+
+/* Página inicial */
+.inicio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(160deg, #0a0a0a, #1a1a1a);
+  text-align: center;
+  padding: 20px;
+}
+
+.inicio h1 {
+  font-size: 36px;
+  color: #ff66cc;
+  margin-bottom: 20px;
+}
+
+.inicio p {
+  font-size: 20px;
+  margin-bottom: 40px;
+  color: #eee;
+}
+
+.inicio button {
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  background-color: #ff3399;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.inicio button:hover {
+  background-color: #e60073;
+  transform: scale(1.05);
+}
+
+/* Página da carta */
+.carta {
+  text-align: center;
+  padding: 20px;
+  background: #000;
+}
+
+.titulo {
+  font-size: 36px;
+  margin-top: 20px;
+  color: #ff66cc;
+  font-weight: bold;
+}
+
+/* Carrossel principal */
+.carousel,
+.carousel2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 460px;
+  overflow: hidden;
+  position: relative;
+  margin: 60px 0;
+}
+
+.slide,
+.slide2 {
+  width: 420px;
+  height: auto;
+  margin: 0 20px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
+}
+
+.slide.active,
+.slide2.active {
+  opacity: 1;
+  position: relative;
+}
+
+/* Cronômetro com quadradinhos transparentes */
+.cronometro {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 40px auto;
+  flex-wrap: wrap;
+}
+
+.cronometro span {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px 26px;
+  border-radius: 12px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #ff66cc;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 12px rgba(255, 105, 180, 0.3);
+}
+
+/* Texto da carta */
+.mensagem {
+  max-width: 750px;
+  margin: auto;
+  font-size: 20px;
+  line-height: 1.8;
+  color: #eee;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
+}
+
+/* Botão da música */
+.btn-musica {
+  text-align: center;
+  margin: 50px 0 80px 0;
+}
+
+.btn-musica button {
+  padding: 14px 28px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #ff3399;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 0 12px rgba(255, 105, 180, 0.4);
+}
+
+.btn-musica button:hover {
+  background-color: #e60073;
+  transform: scale(1.05);
+}
+
+/* Corações animados */
+.coracoes {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.heart {
+  position: absolute;
+  font-size: 24px;
+  animation: cair 5s linear infinite;
+  color: #ff66cc;
+}
+
+@keyframes cair {
+  0% {
+    top: -10%;
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+    transform: scale(0.5);
+  }
+}

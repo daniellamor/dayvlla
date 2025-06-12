@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Para o meu amor</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="carta">
+  <!-- Redireciona para index.html se recarregar a página diretamente -->
+  <script>
+    if (performance.navigation.type === 1) {
+      window.location.href = "index.html";
+    }
+  </script>
+
+  <audio autoplay loop>
+    <source src="realidade-ou-fantasia.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <div class="coracoes"></div>
+
+  <h1 class="titulo">Minha Cartinha para você 💌</h1>
+
+  <div class="carousel">
+    <img class="slide active" src="foto1.jpg" alt="Foto 1">
+    <img class="slide" src="foto2.jpg" alt="Foto 2">
+    <img class="slide" src="foto3.jpg" alt="Foto 3">
+    <img class="slide" src="foto4.jpeg" alt="Foto 4">
+  </div>
+
+  <div class="cronometro" id="timer">Carregando...</div>
+
+  <div class="carousel2">
+    <img class="slide2 active" src="foto5.jpg" alt="Foto 5">
+    <img class="slide2" src="foto6.jpg" alt="Foto 6">
+    <img class="slide2" src="foto7.jpg" alt="Foto 7">
+    <img class="slide2" src="foto8.jpg" alt="Foto 8">
+  </div>
+
+  <div class="mensagem">
+    <p>Há um ano atrás eu nem sonhava em passar esse dia com o nerd que eu tive uma paixonite há 13 anos mas ainda bem que a gente se reencontrou e em uma semana tu já tinha caído na minha lábia, (ou eu na tua).
+Você é um dos homens mais generosos, inteligentes e parceiros que conheci e ainda bem, que posso compartilhar a vida com um homem tão incrível. Obrigada por me aguentar ou tentar, por trazer equilíbrio pra minha vida e razão. 
+Espero dividir uma vida inteira juntos e formar uma família linda contigo. 
+Te amo, te amo e feliz dia dos namorados, neguinho..</p>
+  </div>
+
+  <div class="btn-musica">
+    <button onclick="window.open('https://www.youtube.com/watch?v=vGJTaP6anOU&ab_channel=ElvisPresleyVEVO', '_blank')">
+      clique aqui 🎶
+    </button>
+  </div>
+
+  <script>
+    // Cronômetro
+    function atualizarCronometro() {
+      const dataInicio = new Date("2024-11-08T00:00:00");
+      const agora = new Date();
+      const diff = agora - dataInicio;
+
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diff / (1000 * 60)) % 60);
+      const segundos = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("timer").innerHTML = `
+        <span>${dias} dias</span>
+        <span>${horas}h</span>
+        <span>${minutos}min</span>
+        <span>${segundos}s</span>
+      `;
+    }
+
+    setInterval(atualizarCronometro, 1000);
+    atualizarCronometro();
+
+    // Corações animados
+    const coracoesContainer = document.querySelector(".coracoes");
+    setInterval(() => {
+      const heart = document.createElement("span");
+      heart.classList.add("heart");
+      heart.textContent = "💗";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 3 + Math.random() * 2 + "s";
+      coracoesContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }, 300);
+
+    // Carrossel 1
+    const slides = document.querySelectorAll(".slide");
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    }
+
+    showSlide(currentSlide);
+
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }, 3000);
+
+    // Carrossel 2
+    const slides2 = document.querySelectorAll(".slide2");
+    let currentSlide2 = 0;
+
+    function showSlide2(index) {
+      slides2.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+    }
+
+    showSlide2(currentSlide2);
+
+    setInterval(() => {
+      currentSlide2 = (currentSlide2 + 1) % slides2.length;
+      showSlide2(currentSlide2);
+    }, 3000);
+  </script>
+</body>
+</html>
